@@ -34,4 +34,5 @@ Basic staking contract where:
 
 **WARNING:**
 - the contract has ~0.1ETH available for rewards
-- deposit only a few tokens and see how the rewards accumulate (on stake/withdraw). - depositing too many tokens which result in having the accruedReward > contract balance would make the `claimRewards` function revert (see improvement 2).
+- deposit only a few tokens and see how the rewards accumulate (on stake/withdraw)
+- depositing too many tokens which result in having the accruedReward > contract balance would make the `claimRewards` function revert (see improvement 2).
