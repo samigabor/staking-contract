@@ -1,4 +1,4 @@
-# Staking Vault
+# Staking Contract
 
 Basic staking contract where:
 - Users stake an ERC20.
