@@ -1,3 +1,5 @@
+// Deployed on 2024-07-11 at 0x705b9c2afd015b1d4fbec7d7a95eedca7b0296e9
+
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.25;
 
@@ -6,6 +8,7 @@ import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 
 /**
  * @title StakingContract
+ * @author Sami Gabor
  * @dev This contract allows users to stake an ERC20 token and claim ETH rewards based on the amount and duration of their stake.
  */
 contract StakingContract is Ownable {
@@ -25,6 +28,7 @@ contract StakingContract is Ownable {
     event Withdrawn(address indexed user, uint256 amount);
     event RewardsClaimed(address indexed user, uint256 amount);
     event EthReceived(address indexed sender, uint256 amount);
+    event RewardRateUpdated(uint256 rewardRate);
 
     // Custom errors
     error NoActiveStake();
@@ -62,6 +66,11 @@ contract StakingContract is Ownable {
             revert InvalidAmount();
         }
         emit EthReceived(msg.sender, msg.value);
+    }
+
+    function setRewardRatePerTokenPerSecond(uint256 rewardRate) external onlyOwner {
+        s_rewardRatePerTokenPerSecond = rewardRate;
+        emit RewardRateUpdated(rewardRate);
     }
 
     /**
