@@ -2,3 +2,7 @@
 src = "src"
 out = "out"
 libs = ["lib"]
+
+remapings = [
+    "@openzeppelin/=lib/openzeppelin-contracts/"
+]
